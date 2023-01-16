@@ -16,7 +16,7 @@ public Plugin myinfo =
 	name		= "Use Tweaks",
 	author		= "Dysphie",
 	description = PLUGIN_DESCRIPTION,
-	version		= "1.0.0",
+	version		= "1.0.1",
 	url			= ""
 };
 
@@ -90,6 +90,7 @@ public void OnPluginStart()
 
 	detour.Enable(Hook_Pre, Detour_FindUseEntity);
 	delete detour;
+	delete gamedata;
 
 	AutoExecConfig(true, "use-tweaks");
 }
