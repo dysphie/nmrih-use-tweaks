@@ -9,14 +9,14 @@
 #define CONTENTS_USEABLE CONTENTS_EMPTY | CONTENTS_SOLID | CONTENTS_WINDOW | CONTENTS_GRATE | CONTENTS_OPAQUE | CONTENTS_MOVEABLE | CONTENTS_MONSTER
 
 #define PLUGIN_DESCRIPTION "Makes +use ignore players in the way"
-#define PLUGIN_VERSION "1.0.0"
+#define PLUGIN_VERSION "1.0.2"
 
 public Plugin myinfo =
 {
 	name		= "Use Tweaks",
 	author		= "Dysphie",
 	description = PLUGIN_DESCRIPTION,
-	version		= "1.0.1",
+	version		= PLUGIN_VERSION,
 	url			= ""
 };
 
@@ -206,6 +206,11 @@ bool EntityInSphere(int hitEnt)
 	// SDK uses FCAP_USE_IN_RADIUS here, but it doesn't seem to work in NMRiH
 	if (!IsUseableEntity(g_Client, hitEnt, FCAP_NONE))
 	{
+		return KEEP_ITERATING;
+	}
+
+	// Parented entities only react to direct traces, not sphere queries
+	if (GetEntPropEnt(hitEnt, Prop_Data, "m_hMoveParent") != -1) {
 		return KEEP_ITERATING;
 	}
 
