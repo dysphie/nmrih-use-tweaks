@@ -1,4 +1,4 @@
-# [NMRiH] Use Tweaks
+# [NMRiH] Players Don't Block Use
 
 Stops players from blocking entity interactions (`E`) with their bodies
 
