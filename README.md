@@ -1,3 +1,5 @@
+> ⚠️ This plugin is no longer needed as of NMRiH 1.13.2
+
 # [NMRiH] Players Don't Block Use
 
 Stops players from blocking entity interactions (`E`) with their bodies
